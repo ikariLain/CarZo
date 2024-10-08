@@ -9,8 +9,8 @@ namespace CarZo
     public interface IDriveable
     {
         void Drive();
-        
     }
+
     abstract class Vehicle
     {
         public string Brand { get; set; }
@@ -20,7 +20,6 @@ namespace CarZo
         {
           this.Brand = Brand;
           this.Model = Model;
-
         }
 
         public override string ToString()
@@ -46,10 +45,11 @@ namespace CarZo
             {
                 return $"{Brand} {Model}, {NumberOfPassengers} passengers";
             }
-
         }
+
         public class Motorcycle : Vehicle, IDriveable
         {
+
             public bool HasSidecar { get; set; }
 
             public Motorcycle(string Brand, string Model, bool hasSidecar) : base (Brand, Model)
@@ -57,7 +57,7 @@ namespace CarZo
                 this.HasSidecar= hasSidecar;
             }
 
-            public void Drive ()
+            public void Drive()
             {
                 Console.WriteLine($"Riding the motorcycle: {Brand} {Model} with sidecar: {HasSidecar}");
             }
@@ -66,11 +66,11 @@ namespace CarZo
             {
                 return $"{Brand} {Model}, Sidecar: {(HasSidecar ? "Yes" : "No")}";
             }
-
-
         }
+
         public class Truck : Vehicle, IDriveable
         {
+
             public int NumberOfAxles { get; set; }
 
             public Truck(string Brand, string Model, int NumberOfAxles) : base (Brand, Model)
@@ -82,6 +82,7 @@ namespace CarZo
             {
                 Console.WriteLine($"Driving the truck: {Brand} {Model} with {NumberOfAxles} axles");
             }
+
             public override string ToString()
             {
                 return $"{Brand} {Model}, {NumberOfAxles} axles";
